@@ -26,9 +26,9 @@ public class StartingMotion : MonoBehaviour {
         transform.position = agent.nextPosition;
         turn = agent.velocity.x / agent.speed;
 
+        Quaternion.LookRotation(targetPosition - transform.position, transform.up);
 
-
-        transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y + turn * turning * Time.deltaTime, 0f);
+        //transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y + turn * turning * Time.deltaTime, 0f);
         if (agent.remainingDistance  <= radius)
         {
             agent.SetDestination(GameController.gameController.GenerateRandomTarget().position);
